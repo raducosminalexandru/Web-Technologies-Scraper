@@ -29,3 +29,7 @@ javaOptions ++= Seq(
 )
 
 libraryDependencies += "com.softwaremill.sttp.client4" %% "core" % "4.0.19"
+
+libraryDependencies += "org.jsoup" % "jsoup" % "1.17.2"
+
+libraryDependencies += "org.scala-lang.modules" %% "scala-parallel-collections" % "1.0.4"
