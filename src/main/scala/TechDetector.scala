@@ -5,6 +5,7 @@ import sttp.model.Header
 import scala.collection.parallel.CollectionConverters._
 import scala.collection.parallel.ForkJoinTaskSupport
 import java.util.concurrent.ForkJoinPool
+import org.apache.hadoop.shaded.org.checkerframework.checker.units.qual.g
 
 object TechDetector extends App {
 
@@ -40,8 +41,7 @@ object TechDetector extends App {
 
     // Using parallelism (significantly faster than sequential processing)
     val parallelDomains = domains.par
-    parallelDomains.tasksupport =
-      new ForkJoinTaskSupport(new ForkJoinPool(16)) // max 16 threads
+    parallelDomains.tasksupport = new ForkJoinTaskSupport(new ForkJoinPool(16)) // max 16 threads
 
     //Fetch the HTML content and headers using flatmap, handling exceptions gracefully with a try-catch block
     val results = parallelDomains.flatMap { domain =>
@@ -60,6 +60,7 @@ object TechDetector extends App {
             None // If the request fails (e.g., 404, timeout), return None to skip this domain (flatMap ignores None values)
         }
 
+        
       } catch {
         case _: Exception =>
           None // Handle any exceptions (e.g., network errors) by returning None and skip this domain
@@ -87,21 +88,65 @@ object TechDetector extends App {
       val technologies =
         scala.collection.mutable.ArrayBuffer[String]() //storing detected technologies in a mutable array buffer to allow for dynamic addition
 
-      if (htmlLower.contains("wordpress")) technologies += "WordPress"
-      if (htmlLower.contains("yoast")) technologies += "Yoast SEO"
+      // List of technologies to detect in HTML body
+      val htmlTechnologies = List(
+        ("WordPress", "wordpress"),
+        ("Yoast SEO", "yoast"),
+        ("Google Analytics", "google-analytics"),
+        ("Google Tag Manager", "googletagmanager")
+      )
 
-      // Create a map of headers for easier access and case-insensitive matching
+      for ((tech, keyword) <- htmlTechnologies) {
+        if (htmlLower.contains(keyword)) {
+          technologies += tech
+        }
+      }
+
+ // Map of header technologies: key = technology, value = (headerName, keyword)
+      val headerTechnologies: Map[String, (String, String)] = Map(
+        "Cloudflare" -> ("server", "cloudflare"),
+        "Apache"     -> ("server", "apache"),
+        "Nginx"      -> ("server", "nginx"),
+        "LiteSpeed"  -> ("server", "litespeed"),
+        "PHP"        -> ("x-powered-by", "php")
+      )
+
+      // Convert headers to a lowercase map for case-insensitive access
       val headersMap: Map[String, String] =
         d.headers.map(h => h.name.toLowerCase -> h.value.toLowerCase).toMap
 
-      if (headersMap.getOrElse("server", "").contains("cloudflare"))
-        technologies += "Cloudflare"
+      // Loop through each technology and check the corresponding header
+      for ((tech, (headerName, keyword)) <- headerTechnologies) {
+        if (headersMap.getOrElse(headerName, "").contains(keyword)) {
+          technologies += tech
+        }
+      }
+      
+      // Checking the script tag so we don't get false positives from the body content (e.g., a blog post mentioning "React" without actually using the React library)
+      val scriptSrcs = "<script[^>]*src=[\"']([^\"']+)[\"']".r.findAllMatchIn(d.body).map(_.group(1).toLowerCase).toList
 
-      //Taking the distinct technologies to avoid counting duplicates
+      // List of technologies and the keywords to detect in script srcs
+      val techKeywords = Map(
+        "jQuery"      -> "jquery",
+        "Bootstrap"   -> "bootstrap",
+        "React"       -> "react",
+        "Vue"         -> "vue",
+        "UIkit"       -> "uikit",
+        "Squarespace" -> "squarespace"
+      )
+
+      // Check each script src for all keywords
+      for ((tech, keyword) <- techKeywords) {
+        if (scriptSrcs.exists(_.contains(keyword.toLowerCase))) {
+          technologies += tech
+        }
+      }
+
+      // Taking the distinct technologies to avoid counting duplicates
       val distinct = technologies.distinct
       countTechnologies += distinct.size //update the global counter with the number of distinct technologies detected for the current domain
 
-      //Output the results in JSON format, including the domain and the list of detected technologies, using string interpolation to construct the JSON string
+      // Output the results in JSON format, including the domain and the list of detected technologies, using string interpolation to construct the JSON string
       val json =
         s"""{"domain":"${d.domain}","technologies":[${distinct.map(t => s""""$t"""").mkString(",")}]}"""
 
@@ -111,7 +156,6 @@ object TechDetector extends App {
 
   // Call the function to start the process of loading domains, fetching their HTML content, detecting technologies, and outputting the results in JSON format
   parseHtml()
-
   // Print the total number of technologies detected across all domains.
   println(s"Total technologies detected: $countTechnologies")
 }
