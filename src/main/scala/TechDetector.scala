@@ -6,6 +6,8 @@ import scala.collection.parallel.CollectionConverters._
 import scala.collection.parallel.ForkJoinTaskSupport
 import java.util.concurrent.ForkJoinPool
 import org.apache.hadoop.shaded.org.checkerframework.checker.units.qual.g
+import org.jsoup.Jsoup
+import scala.jdk.CollectionConverters._
 
 object TechDetector extends App {
 
@@ -27,7 +29,6 @@ object TechDetector extends App {
       .collect()
       .map(_.getString(0))
       .toSeq
-
     spark.stop()
     domains
   }
@@ -75,84 +76,107 @@ object TechDetector extends App {
   // Global counter to keep track of the total number of technologies detected across all domains, initialized to 0
   var countTechnologies = 0
 
-  def parseHtml() = {
-    // Load domains from the Parquet file and fetch their HTML content and headers
-    val domains = loadDomains("data/raw/domains.parquet")
-    val data    = fetchDomains(domains)
+def parseHtml() = {
+  // Load domains from the Parquet file and fetch their HTML content and headers
+  val domains = loadDomains("data/raw/domains.parquet")
+  val data    = fetchDomains(domains)
 
-    //traverse the fetched data and detect technologies based on the presence of specific keywords in the HTML content and headers
-    for (d <- data) {
-      // convert the HTML content to lowercase for case-insensitive matching and easier keyword detection
-      val htmlLower = d.body.toLowerCase
+  //traverse the fetched data and detect technologies based on the presence of specific keywords in the HTML content and headers
+  for (d <- data) {
 
-      val technologies =
-        scala.collection.mutable.ArrayBuffer[String]() //storing detected technologies in a mutable array buffer to allow for dynamic addition
+    val technologies =
+      scala.collection.mutable.ArrayBuffer[String]() //storing detected technologies in a mutable array buffer to allow for dynamic addition
 
-      // List of technologies to detect in HTML body
-      val htmlTechnologies = List(
-        ("WordPress", "wordpress"),
-        ("Yoast SEO", "yoast"),
-        ("Google Analytics", "google-analytics"),
-        ("Google Tag Manager", "googletagmanager")
-      )
+    val doc = Jsoup.parse(d.body)
 
-      for ((tech, keyword) <- htmlTechnologies) {
-        if (htmlLower.contains(keyword)) {
-          technologies += tech
-        }
+    // Map of header technologies: key = technology, value = (headerName, keyword)
+    val headerTechnologies: Map[String, (String, String)] = Map(
+      "Cloudflare" -> ("server", "cloudflare"),
+      "Apache"     -> ("server", "apache"),
+      "Nginx"      -> ("server", "nginx"),
+      "LiteSpeed"  -> ("server", "litespeed"),
+      "PHP"        -> ("x-powered-by", "php")
+    )
+
+    // Convert headers to a lowercase map for case-insensitive access
+    val headersMap: Map[String, String] =
+      d.headers.map(h => h.name.toLowerCase -> h.value.toLowerCase).toMap
+
+    // Loop through each technology and check the corresponding header
+    for ((tech, (headerName, keyword)) <- headerTechnologies) {
+      if (headersMap.getOrElse(headerName, "").contains(keyword)) {
+        technologies += tech
       }
-
- // Map of header technologies: key = technology, value = (headerName, keyword)
-      val headerTechnologies: Map[String, (String, String)] = Map(
-        "Cloudflare" -> ("server", "cloudflare"),
-        "Apache"     -> ("server", "apache"),
-        "Nginx"      -> ("server", "nginx"),
-        "LiteSpeed"  -> ("server", "litespeed"),
-        "PHP"        -> ("x-powered-by", "php")
-      )
-
-      // Convert headers to a lowercase map for case-insensitive access
-      val headersMap: Map[String, String] =
-        d.headers.map(h => h.name.toLowerCase -> h.value.toLowerCase).toMap
-
-      // Loop through each technology and check the corresponding header
-      for ((tech, (headerName, keyword)) <- headerTechnologies) {
-        if (headersMap.getOrElse(headerName, "").contains(keyword)) {
-          technologies += tech
-        }
-      }
-      
-      // Checking the script tag so we don't get false positives from the body content (e.g., a blog post mentioning "React" without actually using the React library)
-      val scriptSrcs = "<script[^>]*src=[\"']([^\"']+)[\"']".r.findAllMatchIn(d.body).map(_.group(1).toLowerCase).toList
-
-      // List of technologies and the keywords to detect in script srcs
-      val techKeywords = Map(
-        "jQuery"      -> "jquery",
-        "Bootstrap"   -> "bootstrap",
-        "React"       -> "react",
-        "Vue"         -> "vue",
-        "UIkit"       -> "uikit",
-        "Squarespace" -> "squarespace"
-      )
-
-      // Check each script src for all keywords
-      for ((tech, keyword) <- techKeywords) {
-        if (scriptSrcs.exists(_.contains(keyword.toLowerCase))) {
-          technologies += tech
-        }
-      }
-
-      // Taking the distinct technologies to avoid counting duplicates
-      val distinct = technologies.distinct
-      countTechnologies += distinct.size //update the global counter with the number of distinct technologies detected for the current domain
-
-      // Output the results in JSON format, including the domain and the list of detected technologies, using string interpolation to construct the JSON string
-      val json =
-        s"""{"domain":"${d.domain}","technologies":[${distinct.map(t => s""""$t"""").mkString(",")}]}"""
-
-      println(json)
     }
+
+    // Extract all div IDs from the HTML document and convert them to lowercase for case-insensitive matching
+    val divIds = doc.select("div[id]").eachAttr("id").toArray.map(_.toString.toLowerCase)
+
+    val divTechnologies: Map[String, String] = Map(
+      "YUI3" -> "yui3-css-stamp"
+    )
+
+    // Loop through divTechnologies and check if the divIds contain the keyword
+    for ((tech, keyword) <- divTechnologies) {
+      if (divIds.exists(_.contains(keyword))) {
+        technologies += tech
+      }
+    }
+
+    // Checking the script tag so we don't get false positives from the body content (e.g., a blog post mentioning "React" without actually using the React library)
+    val scriptSrcs = doc.select("script[src]")
+      .eachAttr("src")
+      .toArray
+      .map(_.toString.toLowerCase)
+
+    val inlineScripts = doc.select("script:not([src])")
+      .asScala
+      .map(_.data().toLowerCase)
+
+    // Unified technology keywords
+    val techKeywords = Map(
+      "WordPress"           -> "wordpress",
+      "Yoast SEO"           -> "yoast",
+      "Google Analytics"    -> "google-analytics",
+      "Google Tag Manager"  -> "googletagmanager",
+      "jQuery"              -> "jquery",
+      "Bootstrap"           -> "bootstrap",
+      "React"               -> "react",
+      "Vue"                 -> "vue",
+      "UIkit"               -> "uikit",
+      "Squarespace"         -> "squarespace",
+      "UserWay"             -> "userway",
+      "Json-LD"             -> "application/ld+json",
+      "Swiper"              -> "swiper-bundle"
+    )
+
+    // Check script src + inline scripts
+    for ((tech, keyword) <- techKeywords) {
+      if (
+        scriptSrcs.exists(_.contains(keyword)) ||
+        inlineScripts.exists(_.contains(keyword))
+      ) {
+        technologies += tech
+      }
+    }
+
+    val generator = doc.select("meta[name=generator]").attr("content").toLowerCase
+
+    if (generator.contains("wordpress")) {
+      technologies += "WordPress"
+    }
+
+    // Taking the distinct technologies to avoid counting duplicates
+    val distinct = technologies.distinct
+    countTechnologies += distinct.size //update the global counter with the number of distinct technologies detected for the current domain
+
+    // Output the results in JSON format, including the domain and the list of detected technologies, using string interpolation to construct the JSON string
+    val json =
+      s"""{"domain":"${d.domain}","technologies":[${distinct.map(t => s""""$t"""").mkString(",")}]}"""
+
+    println(json)
   }
+}
 
   // Call the function to start the process of loading domains, fetching their HTML content, detecting technologies, and outputting the results in JSON format
   parseHtml()
