@@ -81,11 +81,11 @@ def parseHtml() = {
   val domains = loadDomains("data/raw/domains.parquet")
   val data    = fetchDomains(domains)
 
-  //traverse the fetched data and detect technologies based on the presence of specific keywords in the HTML content and headers
+  // traverse the fetched data and detect technologies based on the presence of specific keywords in the HTML content and headers
   for (d <- data) {
 
     val technologies =
-      scala.collection.mutable.ArrayBuffer[String]() //storing detected technologies in a mutable array buffer to allow for dynamic addition
+      scala.collection.mutable.ArrayBuffer[String]() // storing detected technologies in a mutable array buffer to allow for dynamic addition
 
     val doc = Jsoup.parse(d.body)
 
@@ -110,7 +110,7 @@ def parseHtml() = {
     }
 
     // Extract all div IDs from the HTML document and convert them to lowercase for case-insensitive matching
-    val divIds = doc.select("div[id]").eachAttr("id").toArray.map(_.toString.toLowerCase)
+    val divIds = doc.select("div[id]").eachAttr("id").asScala.map(_.toLowerCase)
 
     val divTechnologies: Map[String, String] = Map(
       "YUI3" -> "yui3-css-stamp"
@@ -122,16 +122,6 @@ def parseHtml() = {
         technologies += tech
       }
     }
-
-    // Checking the script tag so we don't get false positives from the body content (e.g., a blog post mentioning "React" without actually using the React library)
-    val scriptSrcs = doc.select("script[src]")
-      .eachAttr("src")
-      .toArray
-      .map(_.toString.toLowerCase)
-
-    val inlineScripts = doc.select("script:not([src])")
-      .asScala
-      .map(_.data().toLowerCase)
 
     // Unified technology keywords
     val techKeywords = Map(
@@ -147,15 +137,22 @@ def parseHtml() = {
       "Squarespace"         -> "squarespace",
       "UserWay"             -> "userway",
       "Json-LD"             -> "application/ld+json",
-      "Swiper"              -> "swiper-bundle"
+      "Swiper"              -> "swiper-bundle",
+      "Akamai Bot Manager"  -> "akam",
+      "Bootstrap" -> "bootstrap.min.js" // tipically bootstrap is included as a script with "bootstrap.min.js" in the src attribute
     )
 
-    // Check script src + inline scripts
+    // Checking the script tags thoroughly to include attributes (like src) and inline content
+    val allScripts = doc.select("script").asScala
+
+    // Check script attributes + data + outerHtml to ensure "akam" is caught even in complex tag structures
     for ((tech, keyword) <- techKeywords) {
-      if (
-        scriptSrcs.exists(_.contains(keyword)) ||
-        inlineScripts.exists(_.contains(keyword))
-      ) {
+      val isPresent = allScripts.exists { s => 
+        s.data().toLowerCase.contains(keyword) || 
+        s.outerHtml().toLowerCase.contains(keyword)
+      }
+      
+      if (isPresent) {
         technologies += tech
       }
     }
@@ -168,7 +165,7 @@ def parseHtml() = {
 
     // Taking the distinct technologies to avoid counting duplicates
     val distinct = technologies.distinct
-    countTechnologies += distinct.size //update the global counter with the number of distinct technologies detected for the current domain
+    countTechnologies += distinct.size // update the global counter with the number of distinct technologies detected for the current domain
 
     // Output the results in JSON format, including the domain and the list of detected technologies, using string interpolation to construct the JSON string
     val json =
