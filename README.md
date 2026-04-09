@@ -43,8 +43,26 @@ The parsing stage is where the "Technographic Fingerprinting" occurs, utilizing 
 ## Debate Topics
 
 ### 1. Main Issues and Tackling Strategies
-* **Anti-Scraping & Headers:** Some domains block simple requests. While it was implemented basic header checking, a production-ready version would require **User-Agent rotation**.
-* **Memory Management:** For millions of domains, keeping all `DomainData` in memory is risky. A better approach would be to process and write results to disk in batches (using Spark's `foreachPartition`).
+
+The development of this detection engine highlighted three primary technical bottlenecks common in large-scale web crawling. Below are the identified constraints and the strategic roadmap implemented or planned to resolve them.
+
+#### **A. Resilience & Anti-Bot Evasion**
+* **The Issue:** Many high-value domains (especially large e-commerce sites) employ sophisticated bot-detection perimeters—such as Cloudflare or Akamai—that block standardized HTTP requests. While basic header manipulation was implemented, simple requests remain susceptible to IP-based rate limiting and fingerprinting.
+* **The Strategy:** Transition to a **High-Entropy Request Model**. This includes:
+    * **User-Agent & Header Rotation:** Utilizing a pool of real-browser fingerprints to bypass static analysis.
+    * **Residential Proxy Integration:** Routing traffic through a rotating proxy gateway (e.g., Decodo) to prevent IP reputation tarnishing and allow for geographic-specific content retrieval.
+
+#### **B. Memory Optimization & Data Persistence**
+* **The Issue:** Scaling to millions of domains introduces a high risk of **Out-Of-Memory (OOM) errors** if the entire `DomainData` payload is held in the application heap. While localizing 200 domains is efficient in-memory, processing millions requires a more resource-conscious approach.
+* **The Strategy:** Implement **Stream-Based Batch Processing**.
+    * Instead of collecting all results into a single memory sequence, the architecture should leverage **Spark’s `foreachPartition`** to process and write results directly to a distributed sink (e.g., a cloud service like S3 or a NoSQL database (MongoDB / Cassandra)) in small, atomic batches. This ensures the memory footprint remains constant regardless of the total input volume.
+
+#### **C. Dynamic Content & Parsing Depth**
+* **The Issue:** Modern web applications (Single Page Apps) frequently inject critical technology signatures via JavaScript *after* the initial DOM load. A static parser like **Jsoup** only sees the "skeleton," potentially missing frontend frameworks, specialized Shopify apps, or analytics triggers that load asynchronously.
+* **The Strategy:** Adopt a **Hybrid Rendering Engine**.
+    * **Heuristic Pre-screening:** Use the fast Jsoup engine for the majority of sites to maintain high throughput.
+    * **Headless Browser Fallback:** For sites that return empty or obfuscated HTML, trigger a **Playwright or Selenium** instance to perform full JavaScript execution.
+    * **Externalized Fingerprints:** Move hardcoded detection maps into a centralized **YAML/JSON configuration**. This allows for signature updates and "confidence scoring" without requiring a re-compilation of the core Scala engine.
 
 ### 2. Scaling for Millions of Domains (1-2 Months)
 * **Distributed Orchestration:** A production-scale version would leverage **Spark's executors** to distribute HTTP requests across a full cluster. Moving beyond a local multi-threaded model to a **distributed parallel model** allows for horizontal scaling.
