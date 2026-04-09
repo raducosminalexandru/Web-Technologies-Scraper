@@ -28,6 +28,9 @@ jobs:
           distribution: 'temurin'
           cache: 'sbt'
 
+      - name: Install sbt
+        uses: sbt/setup-sbt@v1
+        
       - name: Check Formatting
         run: sbt scalafmtCheckAll
 
