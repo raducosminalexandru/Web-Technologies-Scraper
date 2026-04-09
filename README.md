@@ -85,301 +85,155 @@ The following dataset represents the technographic profiles identified during th
 
 #### **Full Output (JSON Lines Format):**
 
-{"domain":"ejc-courtage-assurances.fr","technologies":["PHP","jQuery"]}
+#### **Full Output (JSON Lines Format):**
 
-{"domain":"261welfarefund.com","technologies":["Cloudflare","jQuery"]}
-
-{"domain":"sgsextremaratio.it","technologies":["Nginx","React"]}
-
-{"domain":"restwellstreetmedicalcentre.com.au","technologies":["LiteSpeed","Bootstrap","jQuery","Google Tag Manager"]}
-
-{"domain":"xn--kleoghvidevareservice-qfc.dk","technologies":["Nginx","Json-LD","jQuery","Yoast SEO"]}
-
-{"domain":"natedea.co.uk","technologies":["Nginx","Google Analytics","Json-LD","jQuery","WordPress","Yoast SEO","Google Tag Manager"]}
-
-{"domain":"mehmetefendimacedonia.com","technologies":["Apache","Google Analytics","jQuery"]}
-
-{"domain":"skywayrestaurants.net","technologies":["Nginx","Json-LD","jQuery","Yoast SEO","WordPress"]}
-
-{"domain":"somalidisablesupport.com","technologies":["Apache","Json-LD","jQuery","Yoast SEO","WordPress"]}
-
-{"domain":"dorpsbelangen.nu","technologies":["Apache","PHP","jQuery","WordPress"]}
-
-{"domain":"cultivateventures.co.nz","technologies":["Json-LD","Squarespace"]}
-
-{"domain":"3xd.co.uk","technologies":["Cloudflare","Json-LD","jQuery","Yoast SEO"]}
-
-{"domain":"3strandschurch.org","technologies":["Cloudflare","jQuery"]}
-
-{"domain":"den-a-sha.co.jp","technologies":["Apache"]}
-
-{"domain":"szentkristofudvarhaz.hu","technologies":["Apache","Google Analytics","jQuery"]}
-
-{"domain":"alabamabuildingcontractor.com","technologies":["PHP","Cloudflare","jQuery"]}
-
-{"domain":"loizillon.com","technologies":["jQuery","Google Tag Manager"]}
-
-{"domain":"laplumedelisibilite.fr","technologies":["PHP","Nginx","jQuery","Google Tag Manager"]}
-
-{"domain":"coastwidemechanicalcentralcoast.com.au","technologies":["PHP","LiteSpeed","Json-LD","jQuery","Google Tag Manager"]}
-
-{"domain":"ferrateoxidant.com","technologies":["Apache","jQuery","WordPress"]}
-
-{"domain":"231selfstorage.com","technologies":["Cloudflare","Json-LD","jQuery","Yoast SEO","Google Tag Manager"]}
-
-{"domain":"2020wealthadvisory.com","technologies":["Cloudflare","Json-LD","jQuery","WordPress"]}
-
-{"domain":"weducars.co.za","technologies":["LiteSpeed","Json-LD","jQuery","Yoast SEO","Google Tag Manager","WordPress"]}
-
-{"domain":"365outsource.com","technologies":["PHP","Cloudflare","Json-LD","jQuery","Yoast SEO","Google Tag Manager","WordPress"]}
-
-{"domain":"resourceservicesolutions.com","technologies":["Apache","jQuery"]}
-
-{"domain":"skywardspeech.com.au","technologies":["Apache"]}
-
-{"domain":"lets.gr","technologies":["Nginx"]}
-
-{"domain":"5starremoval.weebly.com","technologies":["Cloudflare","Google Analytics","jQuery"]}
-
-{"domain":"gitesducharmois.fr","technologies":["Json-LD","React"]}
-
-{"domain":"nielsbirk.dk","technologies":["Nginx","UIkit","Google Tag Manager"]}
-
-{"domain":"allegrocreditbeta.com","technologies":["Akamai Bot Manager","jQuery","Vue"]}
-
-{"domain":"haus-muehlenfeld-pommerby.de","technologies":["Nginx","jQuery"]}
-
-{"domain":"amourfinder.com","technologies":["Json-LD"]}
-
-{"domain":"sevecoitalia.com","technologies":["jQuery","Google Tag Manager"]}
-
-{"domain":"2ldm.com","technologies":["Google Analytics","Json-LD","jQuery","WordPress","Yoast SEO","Google Tag Manager"]}
-
-{"domain":"phucankhanggroup.com","technologies":["Bootstrap","jQuery"]}
-
-{"domain":"oakwell.vet","technologies":["Nginx","Json-LD","jQuery","Yoast SEO","Google Tag Manager","WordPress"]}
-
-{"domain":"hnafirm.com","technologies":["Nginx","Swiper","jQuery"]}
-
-{"domain":"gutendorf.ru","technologies":["Nginx","jQuery","WordPress"]}
-
-{"domain":"lscms.org","technologies":["Apache","jQuery","WordPress"]}
-
-{"domain":"gapconstructionwi.com","technologies":["Json-LD","WordPress","React"]}
-
-{"domain":"4stonebuildings.com","technologies":["Cloudflare","Google Analytics","Json-LD","jQuery","WordPress","Yoast SEO","Google Tag Manager"]}
-
-{"domain":"maniaupiekszania.pl","technologies":["Apache","Json-LD","jQuery","Yoast SEO","WordPress"]}
-
-{"domain":"evelynanders.com","technologies":["Apache","PHP","jQuery"]}
-
-{"domain":"radxmobile.com","technologies":["Json-LD","React"]}
-
-{"domain":"imgs.co.jp","technologies":["Apache","jQuery","Google Tag Manager"]}
-
-{"domain":"europeaninns.com","technologies":["Apache"]}
-
+```json
 {"domain":"arenaskolor.se","technologies":["Nginx","Json-LD","jQuery","Yoast SEO","WordPress"]}
-
-{"domain":"2-com.net","technologies":["Cloudflare","Google Tag Manager"]}
-
-{"domain":"sprucemeadowsmd.com","technologies":["Apache","PHP","jQuery"]}
-
-{"domain":"mysterion.hr","technologies":["Cloudflare","Bootstrap","Json-LD","jQuery","Yoast SEO","Google Tag Manager","WordPress"]}
-
-{"domain":"hoffmaninstitute.co.uk","technologies":["Cloudflare","Json-LD","jQuery","Yoast SEO","WordPress"]}
-
-{"domain":"katesworldtravel.com","technologies":["Nginx","Json-LD","jQuery","WordPress","Yoast SEO"]}
-
-{"domain":"itsolutions24.pl","technologies":["Apache","jQuery","WordPress"]}
-
+{"domain":"makpharma-eg.com","technologies":["GoDaddy Website Builder"]}
 {"domain":"massageforworldpeace.com","technologies":["Apache","jQuery"]}
-
-{"domain":"1planettechnologies.weebly.com","technologies":["Cloudflare","Google Analytics","jQuery"]}
-
-{"domain":"clotting-guide.online","technologies":["Apache","jQuery","React","WordPress"]}
-
-{"domain":"3dwealthadvisory.com","technologies":["Cloudflare","jQuery"]}
-
-{"domain":"lorenz-baumarkt.de","technologies":["Apache","jQuery"]}
-
-{"domain":"domekvefaru.com","technologies":["React"]}
-
-{"domain":"3bsexcavating.com","technologies":["Cloudflare","Json-LD","jQuery","Yoast SEO","Google Tag Manager","UserWay"]}
-
-{"domain":"westchesterpointechiro.com","technologies":["Apache","jQuery","Google Tag Manager"]}
-
-{"domain":"roccofortehotels.cn","technologies":["Akamai Bot Manager","jQuery","UserWay"]}
-
-{"domain":"aaice.net","technologies":["Cloudflare","Google Analytics","Json-LD","jQuery","WordPress","Yoast SEO","Google Tag Manager"]}
-
-{"domain":"nevsproductions.com","technologies":["Nginx","Google Tag Manager"]}
-
-{"domain":"38inspect.com","technologies":["Cloudflare","Json-LD","jQuery","Yoast SEO","WordPress"]}
-
-{"domain":"rsthealthcare.com","technologies":["PHP","LiteSpeed"]}
-
-{"domain":"doringpoort.com","technologies":["Nginx","Json-LD","jQuery","WordPress","Yoast SEO","Google Tag Manager"]}
-
-{"domain":"cei-expertises.fr","technologies":["PHP","LiteSpeed","Json-LD","jQuery","Yoast SEO","React"]}
-
-{"domain":"a3sec.com","technologies":["Cloudflare","Swiper","Json-LD","jQuery","Google Tag Manager"]}
-
-{"domain":"boken.ch","technologies":["Apache","Json-LD","jQuery","Yoast SEO","WordPress"]}
-
-{"domain":"concrete-fitness.edan.io","technologies":["Cloudflare","jQuery","Google Tag Manager"]}
-
-{"domain":"newbeaverborough.org","technologies":["Nginx","jQuery","WordPress"]}
-
-{"domain":"jobresourcecentre.com","technologies":["Bootstrap","jQuery","Google Tag Manager","WordPress"]}
-
-{"domain":"doortodoororganics.com","technologies":["Cloudflare","Json-LD"]}
-
-{"domain":"seringa-safaris.com","technologies":["Apache","Bootstrap","jQuery","Google Tag Manager"]}
-
-{"domain":"msc-manching.de","technologies":["Apache","Bootstrap","jQuery","WordPress"]}
-
-{"domain":"lojatatical.com.br","technologies":["jQuery","Google Tag Manager"]}
-
-{"domain":"jenniferbacksteininteriors.com","technologies":["Json-LD","Squarespace"]}
-
-{"domain":"kande-hoikuen.ed.jp","technologies":["Nginx","jQuery"]}
-
-{"domain":"velvety.eu","technologies":["Json-LD","jQuery","Yoast SEO","Google Tag Manager"]}
-
-{"domain":"disneystore.com","technologies":["Cloudflare","Akamai Bot Manager","Json-LD"]}
-
-{"domain":"sdmdjentertainment.com","technologies":["Json-LD"]}
-
-{"domain":"959marine.com","technologies":["Cloudflare","Google Analytics","jQuery"]}
-
-{"domain":"rionecontrastanga.net","technologies":["PHP","jQuery","WordPress"]}
-
-{"domain":"eclairage-solaire-occitanie.com","technologies":["Json-LD","React"]}
-
-{"domain":"253media.com","technologies":["Cloudflare","jQuery","Google Tag Manager"]}
-
-{"domain":"chiantifiorentino.it","technologies":["jQuery","Google Tag Manager"]}
-
-{"domain":"5rcircleprocess.weebly.com","technologies":["Cloudflare","Google Analytics","jQuery"]}
-
-{"domain":"nicholsonchiro.com","technologies":["Apache","Json-LD","jQuery","Yoast SEO","Google Tag Manager"]}
-
-{"domain":"1stlocksheathscouts.org.uk","technologies":["Cloudflare","Json-LD","jQuery","WordPress"]}
-
-{"domain":"premierhomeremodeling.net","technologies":["Nginx","React"]}
-
-{"domain":"infoaboutnetwork.com","technologies":["Cloudflare"]}
-
-{"domain":"powercleaning.services","technologies":["Nginx","Json-LD","jQuery","Yoast SEO","Google Tag Manager"]}
-
-{"domain":"koniczynka.info.pl","technologies":["Apache","Akamai Bot Manager","Json-LD","jQuery","Yoast SEO"]}
-
-{"domain":"xn--jobvrkstedet-9cb.nu","technologies":["Bootstrap","jQuery","WordPress"]}
-
-{"domain":"cmc01village.com","technologies":["Cloudflare","jQuery","Google Tag Manager"]}
-
-{"domain":"orifoodsco.com","technologies":["Json-LD","Squarespace"]}
-
-{"domain":"elcolegiocongresosyrestaurante.com","technologies":["Nginx","Akamai Bot Manager"]}
-
-{"domain":"hansis-knusperhendl-foodtruck.eatbu.com","technologies":["Json-LD","Google Tag Manager"]}
-
-{"domain":"kentpropertyrenovations.co.uk","technologies":["Apache","Json-LD","jQuery","Yoast SEO","WordPress"]}
-
-{"domain":"genesisny.net","technologies":["LiteSpeed","Google Analytics"]}
-
-{"domain":"joburgheritage.org.za","technologies":["Nginx","jQuery","Google Tag Manager","WordPress"]}
-
-{"domain":"wglchurch.com","technologies":[]}
-
+{"domain":"msc-manching.de","technologies":["Apache","PHP","Bootstrap","jQuery","WordPress"]}
 {"domain":"stoperbis.pl","technologies":["Apache","Google Analytics","jQuery"]}
-
-{"domain":"11thhourracing.org","technologies":["Cloudflare","Json-LD","jQuery","Google Tag Manager"]}
-
-{"domain":"unitedveterinaryservice.com","technologies":["PHP","LiteSpeed","jQuery","WordPress"]}
-
-{"domain":"100wwcstlw.org","technologies":["Cloudflare"]}
-
-{"domain":"arol.cl","technologies":["Apache"]}
-
-{"domain":"insieme.stanford.edu","technologies":["jQuery","Google Tag Manager"]}
-
-{"domain":"abbikadabbisbakingco.com","technologies":["Cloudflare","Vue"]}
-
-{"domain":"miratrade.com.tr","technologies":["PHP","Cloudflare","jQuery","WordPress"]}
-
-{"domain":"passwordstore.it","technologies":["Apache","Json-LD","jQuery","Yoast SEO","Google Tag Manager","WordPress"]}
-
-{"domain":"tamcconstruction.net","technologies":["Nginx","Json-LD","jQuery","Google Tag Manager"]}
-
-{"domain":"freo.com.au","technologies":["LiteSpeed","jQuery"]}
-
-{"domain":"trs-energycontrol.de","technologies":["React"]}
-
-{"domain":"layer7innovations.ca","technologies":["Cloudflare","Bootstrap","jQuery"]}
-
-{"domain":"bfnelson.it","technologies":["PHP","LiteSpeed","Swiper","Json-LD","Yoast SEO","WordPress"]}
-
-{"domain":"5w.design","technologies":["Cloudflare","Json-LD","jQuery","Yoast SEO"]}
-
-{"domain":"northshoremacnut.com","technologies":["Json-LD","React"]}
-
-{"domain":"2agateway.com","technologies":["Cloudflare","Json-LD","WordPress"]}
-
-{"domain":"needaphysio.com","technologies":["Json-LD","WordPress","React"]}
-
-{"domain":"unnames.com","technologies":["Cloudflare","Json-LD","jQuery"]}
-
-{"domain":"avocatalinamanciu.ro","technologies":["LiteSpeed","Json-LD","jQuery","Yoast SEO","Google Tag Manager","WordPress"]}
-
-{"domain":"fluxar.com.ar","technologies":["PHP","LiteSpeed","Google Analytics","Json-LD","jQuery","Vue","WordPress","Google Tag Manager"]}
-
-{"domain":"ideenhunger.com","technologies":["Cloudflare","jQuery","Google Tag Manager"]}
-
-{"domain":"bata.edu.hu","technologies":["Apache","jQuery","WordPress"]}
-
-{"domain":"marien-apotheke-grefrath-app.de","technologies":["Json-LD"]}
-
-{"domain":"rivithead.com","technologies":["Apache","Swiper"]}
-
-{"domain":"ledestjernenstu.dk","technologies":["Bootstrap","Json-LD","jQuery","Yoast SEO","Google Tag Manager","WordPress"]}
-
-{"domain":"makpharma-eg.com","technologies":[]}
-
-{"domain":"centreconsiliereavort.ro","technologies":["PHP","LiteSpeed","jQuery","WordPress"]}
-
-{"domain":"footasylum.com","technologies":["Swiper","Bootstrap","Akamai Bot Manager","Json-LD","jQuery","Google Tag Manager"]}
-
-{"domain":"lighthouseprc.org","technologies":["Apache","Json-LD","jQuery","Google Tag Manager","WordPress"]}
-
-{"domain":"thomasrosenbaum.com","technologies":["Json-LD","Squarespace"]}
-
-{"domain":"dssfla.com","technologies":["Nginx","Json-LD","jQuery","Yoast SEO","Google Tag Manager","WordPress"]}
-
-{"domain":"appelpsychotherapy.com","technologies":["Json-LD","React"]}
-
-{"domain":"broganlmt.com","technologies":["Json-LD","WordPress","React"]}
-
-{"domain":"3-energie-klaas.de","technologies":["Cloudflare","Canva"]}
-
-{"domain":"buchhaltungsservice-koenig.de","technologies":["Apache","PHP","Json-LD","jQuery","WordPress"]}
-
-{"domain":"11853prospecthill.com","technologies":["Cloudflare","jQuery","Google Tag Manager","UserWay"]}
-
-{"domain":"1ststopsupply.com","technologies":["Cloudflare","Json-LD","jQuery","Yoast SEO"]}
-
-{"domain":"herbalwise.ie","technologies":["Cloudflare","Json-LD","jQuery"]}
-
-{"domain":"nwmotorinn.com","technologies":["Cloudflare","Json-LD","jQuery","React"]}
-
-{"domain":"davidloeppke.com","technologies":["Json-LD","Google Tag Manager"]}
-
+{"domain":"somalidisablesupport.com","technologies":["Apache","Json-LD","jQuery","Yoast SEO","WordPress"]}
+{"domain":"xn--kleoghvidevareservice-qfc.dk","technologies":["Nginx","Json-LD","jQuery","Yoast SEO"]}
+{"domain":"38inspect.com","technologies":["Cloudflare","Json-LD","jQuery","Yoast SEO","WordPress"]}
+{"domain":"3xd.co.uk","technologies":["Cloudflare","Json-LD","jQuery","Yoast SEO"]}
+{"domain":"ejc-courtage-assurances.fr","technologies":["PHP","jQuery"]}
+{"domain":"boken.ch","technologies":["Apache","Json-LD","jQuery","Yoast SEO","WordPress"]}
 {"domain":"solvos.nl","technologies":["Json-LD","jQuery","Yoast SEO","Google Tag Manager","WordPress"]}
-
+{"domain":"2ldm.com","technologies":["Google Analytics","Json-LD","jQuery","WordPress","Yoast SEO","Google Tag Manager"]}
+{"domain":"itsolutions24.pl","technologies":["Apache","jQuery","WordPress"]}
+{"domain":"szentkristofudvarhaz.hu","technologies":["Apache","PHP","Google Analytics","jQuery"]}
+{"domain":"maniaupiekszania.pl","technologies":["Apache","Json-LD","jQuery","Yoast SEO","WordPress"]}
+{"domain":"261welfarefund.com","technologies":["Cloudflare","jQuery"]}
+{"domain":"avocatalinamanciu.ro","technologies":["LiteSpeed","Json-LD","jQuery","Yoast SEO","Google Tag Manager","WordPress"]}
+{"domain":"kentpropertyrenovations.co.uk","technologies":["Apache","Json-LD","jQuery","Yoast SEO","WordPress"]}
+{"domain":"ferrateoxidant.com","technologies":["Apache","jQuery","WordPress"]}
+{"domain":"231selfstorage.com","technologies":["Cloudflare","Json-LD","jQuery","Yoast SEO","Google Tag Manager"]}
+{"domain":"cultivateventures.co.nz","technologies":["Json-LD","Squarespace"]}
+{"domain":"restwellstreetmedicalcentre.com.au","technologies":["LiteSpeed","Bootstrap","jQuery","Google Tag Manager"]}
+{"domain":"sprucemeadowsmd.com","technologies":["Apache","PHP","jQuery"]}
+{"domain":"newbeaverborough.org","technologies":["Nginx","jQuery","WordPress"]}
+{"domain":"aaice.net","technologies":["Cloudflare","Google Analytics","Json-LD","jQuery","WordPress","Yoast SEO","Google Tag Manager"]}
+{"domain":"dssfla.com","technologies":["Nginx","Json-LD","jQuery","Yoast SEO","Google Tag Manager","WordPress"]}
+{"domain":"den-a-sha.co.jp","technologies":["Apache"]}
+{"domain":"5starremoval.weebly.com","technologies":["Cloudflare","Google Analytics","jQuery"]}
+{"domain":"rionecontrastanga.net","technologies":["PHP","jQuery","WordPress"]}
+{"domain":"lscms.org","technologies":["Apache","jQuery","WordPress"]}
+{"domain":"mehmetefendimacedonia.com","technologies":["Apache","Google Analytics","jQuery"]}
+{"domain":"premierhomeremodeling.net","technologies":["Nginx","React"]}
+{"domain":"oakwell.vet","technologies":["Nginx","Json-LD","jQuery","Yoast SEO","Google Tag Manager","WordPress"]}
+{"domain":"westchesterpointechiro.com","technologies":["Apache","jQuery","Google Tag Manager"]}
+{"domain":"genesisny.net","technologies":["LiteSpeed","Google Analytics"]}
+{"domain":"gutendorf.ru","technologies":["Nginx","jQuery","WordPress"]}
+{"domain":"laplumedelisibilite.fr","technologies":["PHP","Nginx","jQuery","Google Tag Manager"]}
+{"domain":"3dwealthadvisory.com","technologies":["Cloudflare","jQuery"]}
+{"domain":"sevecoitalia.com","technologies":["jQuery","Google Tag Manager"]}
+{"domain":"mysterion.hr","technologies":["Cloudflare","Bootstrap","Json-LD","jQuery","Yoast SEO","Google Tag Manager","WordPress"]}
+{"domain":"365outsource.com","technologies":["PHP","Cloudflare","Json-LD","jQuery","Yoast SEO","Google Tag Manager","WordPress"]}
+{"domain":"weducars.co.za","technologies":["LiteSpeed","Json-LD","jQuery","Yoast SEO","Google Tag Manager","WordPress"]}
+{"domain":"lets.gr","technologies":["Nginx"]}
+{"domain":"nielsbirk.dk","technologies":["Nginx","UIkit","Google Tag Manager"]}
+{"domain":"nevsproductions.com","technologies":["Nginx","Google Tag Manager"]}
+{"domain":"gapconstructionwi.com","technologies":["Json-LD","WordPress","React"]}
+{"domain":"gitesducharmois.fr","technologies":["Json-LD","React"]}
+{"domain":"cei-expertises.fr","technologies":["PHP","LiteSpeed","Json-LD","jQuery","Yoast SEO","React"]}
+{"domain":"kande-hoikuen.ed.jp","technologies":["Nginx","jQuery"]}
+{"domain":"4stonebuildings.com","technologies":["Cloudflare","Google Analytics","Json-LD","jQuery","WordPress","Yoast SEO","Google Tag Manager"]}
+{"domain":"lorenz-baumarkt.de","technologies":["Apache","jQuery"]}
+{"domain":"imgs.co.jp","technologies":["Apache","jQuery","Google Tag Manager"]}
+{"domain":"katesworldtravel.com","technologies":["Nginx","Json-LD","jQuery","WordPress","Yoast SEO"]}
+{"domain":"allegrocreditbeta.com","technologies":["Akamai Bot Manager","jQuery"]}
+{"domain":"unnames.com","technologies":["Cloudflare","Json-LD","jQuery"]}
+{"domain":"radxmobile.com","technologies":["Json-LD","React"]}
+{"domain":"sgsextremaratio.it","technologies":["Nginx","React"]}
+{"domain":"5w.design","technologies":["Cloudflare","Json-LD","jQuery","Yoast SEO"]}
+{"domain":"seringa-safaris.com","technologies":["Apache","Bootstrap","jQuery","Google Tag Manager"]}
+{"domain":"skywayrestaurants.net","technologies":["Nginx","Json-LD","jQuery","Yoast SEO","WordPress"]}
+{"domain":"3bsexcavating.com","technologies":["Cloudflare","Json-LD","jQuery","Yoast SEO","Google Tag Manager","UserWay"]}
+{"domain":"clotting-guide.online","technologies":["Apache","jQuery","React","WordPress"]}
+{"domain":"3strandschurch.org","technologies":["Cloudflare","jQuery"]}
+{"domain":"natedea.co.uk","technologies":["Nginx","Google Analytics","Json-LD","jQuery","WordPress","Yoast SEO","Google Tag Manager"]}
+{"domain":"disneystore.com","technologies":["Cloudflare","Akamai Bot Manager","Json-LD"]}
+{"domain":"largsbaychiropractic.com.au","technologies":["Json-LD","Squarespace"]}
+{"domain":"marien-apotheke-grefrath-app.de","technologies":["Json-LD"]}
+{"domain":"2-com.net","technologies":["Cloudflare","Google Tag Manager"]}
+{"domain":"959marine.com","technologies":["Cloudflare","PHP","Google Analytics","jQuery"]}
+{"domain":"2020wealthadvisory.com","technologies":["Cloudflare","Json-LD","jQuery","WordPress"]}
+{"domain":"hoffmaninstitute.co.uk","technologies":["Cloudflare","Json-LD","jQuery","Yoast SEO","WordPress"]}
+{"domain":"phucankhanggroup.com","technologies":["PHP","Bootstrap","jQuery"]}
+{"domain":"resourceservicesolutions.com","technologies":["Apache","jQuery"]}
+{"domain":"coastwidemechanicalcentralcoast.com.au","technologies":["PHP","LiteSpeed","Json-LD","jQuery","Google Tag Manager"]}
+{"domain":"skywardspeech.com.au","technologies":["Apache"]}
+{"domain":"rsthealthcare.com","technologies":["PHP","LiteSpeed"]}
+{"domain":"orifoodsco.com","technologies":["Json-LD","Squarespace"]}
+{"domain":"loizillon.com","technologies":["JSP","jQuery","Google Tag Manager"]}
+{"domain":"amourfinder.com","technologies":["Json-LD"]}
+{"domain":"centreconsiliereavort.ro","technologies":["PHP","LiteSpeed","jQuery","WordPress"]}
+{"domain":"hnafirm.com","technologies":["Nginx","Swiper","jQuery"]}
+{"domain":"infoaboutnetwork.com","technologies":["Cloudflare"]}
+{"domain":"insieme.stanford.edu","technologies":["jQuery","Google Tag Manager"]}
+{"domain":"a3sec.com","technologies":["Cloudflare","Swiper","Json-LD","jQuery","Google Tag Manager"]}
+{"domain":"1planettechnologies.weebly.com","technologies":["Cloudflare","Google Analytics","jQuery"]}
+{"domain":"layer7innovations.ca","technologies":["Cloudflare","Bootstrap","jQuery"]}
+{"domain":"253media.com","technologies":["Cloudflare","jQuery","Google Tag Manager"]}
+{"domain":"lojatatical.com.br","technologies":["jQuery","Google Tag Manager"]}
+{"domain":"haus-muehlenfeld-pommerby.de","technologies":["Nginx","jQuery"]}
+{"domain":"domekvefaru.com","technologies":["React"]}
+{"domain":"elcolegiocongresosyrestaurante.com","technologies":["Nginx","Akamai Bot Manager"]}
+{"domain":"roccofortehotels.cn","technologies":["Akamai Bot Manager","jQuery","UserWay"]}
+{"domain":"hansis-knusperhendl-foodtruck.eatbu.com","technologies":["Json-LD","Google Tag Manager"]}
+{"domain":"europeaninns.com","technologies":["Apache"]}
+{"domain":"davidloeppke.com","technologies":["Json-LD","Google Tag Manager"]}
 {"domain":"deepseass.com","technologies":["PHP","Json-LD","jQuery","Yoast SEO","WordPress"]}
-
+{"domain":"5rcircleprocess.weebly.com","technologies":["Cloudflare","Google Analytics","jQuery"]}
+{"domain":"ledestjernenstu.dk","technologies":["PHP","Bootstrap","Json-LD","jQuery","Yoast SEO","Google Tag Manager","WordPress"]}
+{"domain":"jobresourcecentre.com","technologies":["Bootstrap","jQuery","Google Tag Manager","WordPress"]}
+{"domain":"sdmdjentertainment.com","technologies":["Json-LD","GoDaddy Website Builder"]}
+{"domain":"freo.com.au","technologies":["LiteSpeed","jQuery"]}
+{"domain":"unitedveterinaryservice.com","technologies":["PHP","LiteSpeed","jQuery","WordPress"]}
+{"domain":"velvety.eu","technologies":["Json-LD","jQuery","Yoast SEO","Google Tag Manager"]}
+{"domain":"100wwcstlw.org","technologies":["Cloudflare"]}
+{"domain":"doortodoororganics.com","technologies":["Cloudflare","Json-LD"]}
+{"domain":"arol.cl","technologies":["Apache"]}
+{"domain":"bfnelson.it","technologies":["PHP","LiteSpeed","Swiper","Json-LD","Yoast SEO","WordPress"]}
+{"domain":"doringpoort.com","technologies":["Nginx","Json-LD","jQuery","WordPress","Yoast SEO","Google Tag Manager"]}
+{"domain":"nwmotorinn.com","technologies":["Cloudflare","Json-LD","jQuery","React"]}
+{"domain":"eclairage-solaire-occitanie.com","technologies":["Json-LD","React"]}
+{"domain":"concrete-fitness.edan.io","technologies":["Cloudflare","jQuery","Google Tag Manager"]}
+{"domain":"1stlocksheathscouts.org.uk","technologies":["Cloudflare","PHP","Json-LD","jQuery","WordPress"]}
+{"domain":"abbikadabbisbakingco.com","technologies":["Cloudflare","Vue"]}
+{"domain":"11thhourracing.org","technologies":["Cloudflare","Json-LD","jQuery","Google Tag Manager"]}
+{"domain":"fluxar.com.ar","technologies":["PHP","LiteSpeed","Google Analytics","Json-LD","jQuery","Vue","WordPress","Google Tag Manager"]}
+{"domain":"ideenhunger.com","technologies":["Cloudflare","jQuery","Google Tag Manager"]}
+{"domain":"cmc01village.com","technologies":["Cloudflare","jQuery","Google Tag Manager"]}
+{"domain":"wglchurch.com","technologies":[]}
+{"domain":"bata.edu.hu","technologies":["Apache","jQuery","WordPress"]}
+{"domain":"dorpsbelangen.nu","technologies":["Apache","PHP","jQuery","WordPress"]}
+{"domain":"nicholsonchiro.com","technologies":["Apache","Json-LD","jQuery","Yoast SEO","Google Tag Manager"]}
+{"domain":"miratrade.com.tr","technologies":["PHP","Cloudflare","jQuery","WordPress"]}
+{"domain":"rivithead.com","technologies":["Apache","PHP","Swiper"]}
+{"domain":"jenniferbacksteininteriors.com","technologies":["Json-LD","Squarespace"]}
+{"domain":"koniczynka.info.pl","technologies":["Apache","Akamai Bot Manager","Json-LD","jQuery","Yoast SEO"]}
+{"domain":"footasylum.com","technologies":["Swiper","Bootstrap","Akamai Bot Manager","Json-LD","jQuery","Google Tag Manager"]}
+{"domain":"lighthouseprc.org","technologies":["Apache","Json-LD","jQuery","Google Tag Manager","WordPress"]}
+{"domain":"xn--jobvrkstedet-9cb.nu","technologies":["Bootstrap","jQuery","WordPress"]}
+{"domain":"joburgheritage.org.za","technologies":["Nginx","jQuery","Google Tag Manager","WordPress"]}
+{"domain":"3-energie-klaas.de","technologies":["Cloudflare","Canva"]}
+{"domain":"2agateway.com","technologies":["Cloudflare","Json-LD","WordPress"]}
+{"domain":"trs-energycontrol.de","technologies":["React"]}
+{"domain":"1ststopsupply.com","technologies":["Cloudflare","Json-LD","jQuery","Yoast SEO"]}
+{"domain":"tamcconstruction.net","technologies":["Nginx","Json-LD","jQuery","Google Tag Manager"]}
+{"domain":"11853prospecthill.com","technologies":["Cloudflare","jQuery","Google Tag Manager","UserWay"]}
+{"domain":"herbalwise.ie","technologies":["Cloudflare","Json-LD","jQuery"]}
+{"domain":"passwordstore.it","technologies":["Apache","Json-LD","jQuery","Yoast SEO","Google Tag Manager","WordPress"]}
 {"domain":"pcb-cpb.com","technologies":["Akamai Bot Manager","Json-LD","WordPress","React"]}
+{"domain":"broganlmt.com","technologies":["Json-LD","WordPress","React"]}
+{"domain":"chiantifiorentino.it","technologies":["Classic ASP","jQuery","Google Tag Manager"]}
+{"domain":"northshoremacnut.com","technologies":["Json-LD","React"]}
+{"domain":"buchhaltungsservice-koenig.de","technologies":["Apache","PHP","Json-LD","jQuery","WordPress"]}
+{"domain":"powercleaning.services","technologies":["Nginx","Json-LD","jQuery","Yoast SEO","Google Tag Manager"]}
+{"domain":"needaphysio.com","technologies":["Json-LD","WordPress","React"]}
+{"domain":"appelpsychotherapy.com","technologies":["Json-LD","React"]}
 
 #### **Analytical Summary**
 * **Total Technologies Detected:** 502
