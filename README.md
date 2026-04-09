@@ -234,6 +234,7 @@ The following dataset represents the technographic profiles identified during th
 {"domain":"powercleaning.services","technologies":["Nginx","Json-LD","jQuery","Yoast SEO","Google Tag Manager"]}
 {"domain":"needaphysio.com","technologies":["Json-LD","WordPress","React"]}
 {"domain":"appelpsychotherapy.com","technologies":["Json-LD","React"]}
+```
 
 #### **Analytical Summary**
 * **Total Technologies Detected:** 502
