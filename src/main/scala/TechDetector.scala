@@ -83,13 +83,14 @@ object TechDetector extends App {
     // Proxy configuration for Decodo
     val proxyHost = "gate.decodo.com"
     val proxyPort = 7000
-    val proxyUser = "sppm0hdgfg"
-    val proxyPass = "5k0lapgbQyl=RPQu10"
+    val proxyUser = "YOUR_DECODO_USERNAME" // replace with your Decodo username
+    val proxyPass = "YOUR_DECODO_PASSWORD" // replace with your Decodo password
 
     val backend = DefaultSyncBackend(
       BackendOptions(
         connectionTimeout = scala.concurrent.duration.Duration(10, "s"),
         proxy = Some(
+          // Configure the HTTP proxy with authentication for Decodo
           BackendOptions.Proxy(
             host = proxyHost,
             port = proxyPort,
@@ -176,6 +177,42 @@ object TechDetector extends App {
         "YUI3" -> "yui3-css-stamp"
       )
 
+      // 1. Map of technologies to look for in 'href' and 'action' attributes
+      val linkTechnologies: Map[String, String] = Map(
+        "PHP"         -> ".php",
+        "ASP.NET"     -> ".aspx",
+        "Classic ASP" -> ".asp",
+        "ColdFusion"  -> ".cfm",
+        "JSP"         -> ".jsp",
+        "Perl/CGI"    -> ".cgi"
+      )
+
+      // 2. Extract values using getElementsByTag (more robust than CSS selectors for legacy HTML)
+      // We manually extract 'href' from <a> and 'action' from <form>
+      val urlAttributes = (
+        doc.getElementsByTag("a").asScala.map(_.attr("href")) ++ 
+        doc.getElementsByTag("form").asScala.map(_.attr("action"))
+      ).filter(_.nonEmpty).map(_.toLowerCase)
+
+      // 3. Iterate through the map and check for matches (added a check to ensure the link is internal to avoid false positives from external links)
+      for ((tech, keyword) <- linkTechnologies) {
+        val isInternalMatch = urlAttributes.exists { url =>
+          val isKeywordPresent = url.contains(keyword.toLowerCase)
+          
+          // Check if it's a relative link (starts with /) 
+          // OR if it contains the current domain name
+          val isInternal = url.startsWith("/") || 
+                          url.startsWith("./") || 
+                          url.contains(d.domain.toLowerCase)
+
+          isKeywordPresent && isInternal
+        }
+
+        if (isInternalMatch) {
+          technologies += tech
+        }
+      }
+
       // Loop through divTechnologies and check if the divIds contain the keyword
       for ((tech, keyword) <- divTechnologies) {
         if (divIds.exists(_.contains(keyword))) {
@@ -186,7 +223,7 @@ object TechDetector extends App {
       // Unified technology keywords
       val techKeywords = Map(
         "WordPress"           -> "wordpress",
-        "Yoast SEO"           -> "yoast",
+        "Yoast SEO"           -> "yoast", // Yoast is a popular WordPress plugin, so its presence can also indicate WordPress usage
         "Google Analytics"    -> "google-analytics",
         "Google Tag Manager"  -> "googletagmanager",
         "jQuery"              -> "jquery",
@@ -218,11 +255,16 @@ object TechDetector extends App {
         }
       }
 
+      // Check the meta generator tag for common CMS indicators (e.g., WordPress, GoDaddy Website Builder)
       val generator = doc.select("meta[name=generator]").attr("content").toLowerCase
 
       if (generator.contains("wordpress")) {
         technologies += "WordPress"
       }
+
+      if (generator.contains("go daddy website builder") || generator.contains("starfield technologies")) {
+          technologies += "GoDaddy Website Builder"
+        }
 
       // Taking the distinct technologies to avoid counting duplicates
       val distinct = technologies.distinct
