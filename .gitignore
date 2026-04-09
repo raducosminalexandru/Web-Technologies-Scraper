@@ -1,12 +1,17 @@
 target/
 project/target/
+project/project/
+.bloop/
+.bsp/
 
 
 .metals/
 .bloop/
 .bsp/
+metals.sbt
 
 .vscode/
+.idea/
 
 .DS_Store
 Thumbs.db
@@ -18,3 +23,10 @@ data/
 *.mv.db
 
 web-technologies-scraper/
+
+target/
+project/target/
+project/project/
+.bloop/
+.bsp/
+

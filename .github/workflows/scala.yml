@@ -1,0 +1,40 @@
+name: Scala CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    # Spark/sbt can be memory-heavy, this keeps the runner stable
+    env:
+      SBT_OPTS: "-Xmx2G -XX:+UseG1GC"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'sbt'
+
+      - name: Check Formatting
+        run: sbt scalafmtCheckAll
+
+      - name: Compile
+        run: sbt compile
+
+      - name: Build Fat JAR (Assembly)
+        run: sbt assembly
+
+      - name: Upload dependency graph
+        uses: scalacenter/sbt-dependency-submission@v2
