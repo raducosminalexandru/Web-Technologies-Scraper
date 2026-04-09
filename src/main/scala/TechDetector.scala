@@ -244,7 +244,7 @@ object TechDetector extends App {
         "Akamai Bot Manager" -> "akam",
         "Bootstrap" -> "bootstrap.min.js", // tipically bootstrap is included as a script with "bootstrap.min.js" in the src attribute
         "Canva" -> "__canva_website_bootstrap__", // Canva's script tag often includes this unique identifier in the src attribute (every identifier starts with "DA")
-        "Shopify" -> "cdn.shopify.com", // Shopify's script tags often include "cdn.shopify.com" in the src attribute
+        "Shopify" -> "cdn.shopify.com" // Shopify's script tags often include "cdn.shopify.com" in the src attribute
       )
 
       // Checking the script tags thoroughly to include attributes (like src) and inline content
