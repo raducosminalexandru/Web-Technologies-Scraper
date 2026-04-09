@@ -85,8 +85,6 @@ The following dataset represents the technographic profiles identified during th
 
 #### **Full Output (JSON Lines Format):**
 
-#### **Full Output (JSON Lines Format):**
-
 ```json
 {"domain":"arenaskolor.se","technologies":["Nginx","Json-LD","jQuery","Yoast SEO","WordPress"]}
 {"domain":"makpharma-eg.com","technologies":["GoDaddy Website Builder"]}
@@ -239,3 +237,24 @@ The following dataset represents the technographic profiles identified during th
 #### **Analytical Summary**
 * **Total Technologies Detected:** 502
 * **Data Integrity Note:** The current execution was conducted without an active proxy layer. Consequently, the detection yield may exhibit minor fluctuations between successive runs due to inherent network latency and server-side timeouts. In a production environment, the integration of a **Proxy-Ready Architecture** would mitigate these discrepancies, ensuring 100% ingestion reliability.
+
+## 5. Bonus
+### CI/CD & Deployment
+This project features a fully automated pipeline to ensure the scraper is always production-ready. 
+
+#### Automation Pipeline
+Whenever a commit is pushed to the `main` branch, **GitHub Actions** triggers a multi-stage workflow:
+
+1.  **Continuous Integration**: Compiles the Scala source code and runs the test suite using `sbt`.
+2.  **Code Quality & Formatting**: Uses **Scalafmt** to verify that all code adheres to a consistent style. The pipeline runs `scalafmtCheckAll` to ensure the repository remains "pretty" and professional.
+3.  **Artifact Assembly**: Packages the application into a **Fat JAR** (Uber JAR) via `sbt assembly`, bundling all Spark and library dependencies for seamless execution.
+4.  **Dockerization**: Utilizes a `Dockerfile` to wrap the JAR into a lightweight, optimized container image.
+5.  **Distribution**: Automatically pushes the final image to the **GitHub Container Registry (GHCR)**.
+
+#### Ready for Scale
+Because the scraper is containerized, it is environment-agnostic. It can be deployed instantly to:
+* **Kubernetes (K8s)** clusters
+* **Docker Compose** environments
+* **Cloud Providers** (AWS ECS, Google Cloud Run, etc.)
+
+> **Note:** The containerized approach handles all Spark-related environment complexities, making the scraper "ready-to-go" with zero local setup required.
