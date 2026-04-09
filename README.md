@@ -275,4 +275,11 @@ Because the scraper is containerized, it is environment-agnostic. It can be depl
 * **Docker Compose** environments
 * **Cloud Providers** (AWS ECS, Google Cloud Run, etc.)
 
-> **Note:** The containerized approach handles all Spark-related environment complexities, making the scraper "ready-to-go" with zero local setup required.
+> **Pro-Tip:** The containerized approach handles all Spark-related environment complexities, making the scraper "ready-to-go" with zero local setup required. 
+> 
+> To maintain style consistency and guarantee a successful build in the CI pipeline, ensure you execute the following command after any code modifications:
+>
+> ```bash
+> sbt scalafmtAll
+> ```
+> This will ensure that the CI pipeline will have the correct format to execute.
